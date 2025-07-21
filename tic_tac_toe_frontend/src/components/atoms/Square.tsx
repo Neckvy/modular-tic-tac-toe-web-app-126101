@@ -26,10 +26,11 @@ export function Square({
           disabled
             ? "cursor-not-allowed bg-gray-200 text-gray-400 dark:bg-gray-800 dark:text-gray-600"
             : "cursor-pointer bg-background"
-        } 
+        }
         ${highlight ? "ring-4 ring-primary" : ""}
       `}
-      onClick={onClick}
+      // Only invoke onClick if not disabled, for extra interactivity robustness
+      onClick={disabled ? undefined : onClick}
       disabled={disabled}
       aria-label={ariaLabel}
       aria-disabled={disabled}
