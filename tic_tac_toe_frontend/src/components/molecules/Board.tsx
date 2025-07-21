@@ -29,7 +29,8 @@ export function Board({
         <Square
           key={idx}
           value={val}
-          disabled={!!disabled || val !== null || !!winningLine}
+          // Disabled only if board/game is disabled (terminal) or square is filled
+          disabled={!!disabled || val !== null}
           highlight={winningLine?.includes(idx)}
           onClick={() => onSquareClick(idx)}
           aria-label={
