@@ -56,7 +56,8 @@ export function GameContainer() {
         onSquareClick={handleSquareClick}
         nextValue={nextValue}
         winningLine={winningLine}
-        disabled={Boolean(winner)}
+        // Disable all squares if game is over (win or draw)
+        disabled={Boolean(winner) || draw}
       />
       <ResetButton onClick={resetGame} disabled={step === 0 && !winner && !draw} />
     </section>
